@@ -58,6 +58,7 @@ public class Gun : MonoBehaviour
     {
         GameObject ball = Instantiate(projectile, transform.position, transform.rotation);
         ball.GetComponent<Rigidbody>().AddForce(transform.forward * projectileVelocity,ForceMode.Impulse);
+        Destroy(ball,2);
     }
 
 
