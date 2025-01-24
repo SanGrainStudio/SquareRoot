@@ -62,7 +62,7 @@ public class Gun : MonoBehaviour
         void shootProjectile()
     {
         GameObject ball = Instantiate(projectile, barrelEnd.transform.position, transform.rotation);
-        ball.GetComponent<Rigidbody>().AddForce(transform.forward * projectileVelocity,ForceMode.Impulse);
+        ball.GetComponent<Rigidbody>().AddForce(barrelEnd.transform.forward * projectileVelocity,ForceMode.Impulse);
     }
 
 
