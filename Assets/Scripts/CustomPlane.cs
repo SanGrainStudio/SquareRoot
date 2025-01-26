@@ -6,10 +6,15 @@ public class CustomPlane : MonoBehaviour
     public int width = 1;  // Width of the plane
     public int height = 1; // Height of the plane
 
+
+
+
+
     void Start()
     {
         GeneratePlane();
     }
+
 
     void GeneratePlane()
     {
