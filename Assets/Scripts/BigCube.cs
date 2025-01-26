@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System.Collections;
 using UnityEngine;
 
 public class BigCube : MonoBehaviour
@@ -83,21 +84,29 @@ private List<Transform> GetNeighbors(Transform cube, List<Transform> cubes)
     return neighbors;
 }
 
-    private void SplitGroups(List<List<Transform>> groups)
+private void SplitGroups(List<List<Transform>> groups)
+{
+    foreach (var group in groups)
     {
-        foreach (var group in groups)
+        GameObject newParent = new GameObject("SubCubeGroup");
+        foreach (var cube in group)
         {
-            GameObject newParent = new GameObject("SubCubeGroup");
-            foreach (var cube in group)
-            {
-                cube.SetParent(newParent.transform);
-            }
+            cube.SetParent(newParent.transform);
         }
+         newParent.AddComponent<BigCube>();
+    }
+        StartCoroutine(CheckForEmptyParent());   
+}
+
 
         // Destroy the original parent if it has no more children
-        if (transform.childCount == 0)
+private IEnumerator CheckForEmptyParent()
         {
-            Destroy(gameObject);
+            yield return null; // Wait for the end of the frame
+
+            if (transform.childCount == 0)
+            {
+                Destroy(gameObject);
+            }
         }
-    }
 }
