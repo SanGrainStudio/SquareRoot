@@ -93,7 +93,9 @@ private void SplitGroups(List<List<Transform>> groups)
         {
             cube.SetParent(newParent.transform);
         }
-         newParent.AddComponent<BigCube>();
+        newParent.AddComponent<BigCube>();
+        newParent.AddComponent<SubGroup>();
+        
     }
         StartCoroutine(CheckForEmptyParent());   
 }
