@@ -5,6 +5,7 @@ TagManager:
   serializedVersion: 3
   tags:
   - SmallCube
+  - MicroCube
   layers:
   - Default
   - TransparentFX

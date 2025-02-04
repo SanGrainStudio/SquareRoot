@@ -6,7 +6,7 @@ public class Shoot : MonoBehaviour
     // The maximum distance for the raycast
     public float raycastDistance = 100f;
     public float shotVelocity = 250;
-    public float delayBetweenObjects = 0.01f; // Delay in seconds
+    public float delayBetweenObjects = 0f; // Delay in seconds
 
     void Update()
     {
@@ -36,6 +36,11 @@ public class Shoot : MonoBehaviour
                     {
                         destroyer.DestroyCube(hit.collider.gameObject);
                     }
+                }
+
+                if (hit.collider.gameObject.tag == "MicroCube")
+                {
+                    hit.collider.GetComponent<Rigidbody>().AddForce(transform.forward* shotVelocity,ForceMode.Impulse);
                 }
 
                 yield return new WaitForSeconds(delayBetweenObjects);

@@ -4,8 +4,9 @@ using UnityEngine;
 
 public class CubeDestroyer : MonoBehaviour
 {   
-
+    public Camera fpsCamera;
     public void DestroyCube(GameObject cube)
+    
     {
         var cubeScript = cube.GetComponent<SmallCube>();
         if (cubeScript != null)
@@ -21,7 +22,7 @@ public class CubeDestroyer : MonoBehaviour
                 Rigidbody rb = child.GetComponent<Rigidbody>();
                 if (rb != null)
                 {
-                    rb.AddForce(child.transform.forward * shotVel,ForceMode.Impulse);
+                    rb.AddForce(fpsCamera.transform.forward* shotVel,ForceMode.Impulse);
                     //StartCoroutine(DelayedMove(0.1f,rb,child,shotVel));
                 }
             
@@ -35,11 +36,5 @@ public class CubeDestroyer : MonoBehaviour
         }
     }
 
-     private IEnumerator DelayedMove(float delayTime, Rigidbody rb, Transform child, float shotVel)
-    {
-        // Wait for the delay
-        yield return new WaitForSeconds(delayTime);
-        rb.AddForce(child.transform.forward * shotVel,ForceMode.Impulse);
-        Debug.Log("Object moved after " + delayTime + " seconds!");
-    }
+
 }
