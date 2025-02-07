@@ -31,11 +31,24 @@ public class Shoot : MonoBehaviour
                 //Debug.Log("Hit object: " + hit.collider.name + " at distance: " + hit.distance);
                 if (hit.collider.gameObject.tag == "SmallCube")
                 {
-                    CubeDestroyer destroyer = GetComponent<CubeDestroyer>();
-                    if (destroyer != null)
-                    {
-                        destroyer.DestroyCube(hit.collider.gameObject);
+                    CubeManager cubemngr = hit.collider.GetComponentInParent<CubeManager>();
+                    cubemngr.DestroyCube(hit.collider.gameObject);
+                    
+                    GameObject clusterCube = hit.collider.GetComponent<SmallCube>().clusterCube;
+                    GameObject instantiatedCube = Instantiate(clusterCube, hit.transform.position, hit.transform.rotation);
+
+                    foreach (Transform child in instantiatedCube.transform)
+                    {   
+                        child.transform.SetParent(null);
+                        Rigidbody rb = child.GetComponent<Rigidbody>();
+                        if (rb != null)
+                        {
+                            rb.AddForce(Camera.main.transform.forward* shotVelocity,ForceMode.Impulse);
+                        }
+                    
                     }
+                    Destroy(instantiatedCube);
+                    
                 }
 
                 if (hit.collider.gameObject.tag == "MicroCube")

@@ -103,7 +103,7 @@ BoxCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
@@ -121,5 +121,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cf15a4aa2f7b8394d9d9c99d8ae79f3b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isDestroyed: 0
   clusterCube: {fileID: 232794066949384789, guid: cdb516199b6dd644ca93bb6018332e4a, type: 3}
+  isDestroyed: 0

@@ -9,7 +9,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2773684746179264805}
-  - component: {fileID: 7075178625052173660}
   m_Layer: 0
   m_Name: BigCube
   m_TagString: Untagged
@@ -59,18 +58,6 @@ Transform:
   - {fileID: 6094586565934811794}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &7075178625052173660
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5963267565287111114}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9e39f2fc9de364344af891e8dc372a37, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1001 &87055439112262413
 PrefabInstance:
   m_ObjectHideFlags: 0

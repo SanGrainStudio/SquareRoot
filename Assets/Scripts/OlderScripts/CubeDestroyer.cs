@@ -23,7 +23,6 @@ public class CubeDestroyer : MonoBehaviour
                 if (rb != null)
                 {
                     rb.AddForce(fpsCamera.transform.forward* shotVel,ForceMode.Impulse);
-                    //StartCoroutine(DelayedMove(0.1f,rb,child,shotVel));
                 }
             
             }

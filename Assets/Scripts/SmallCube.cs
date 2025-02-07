@@ -3,8 +3,7 @@ using UnityEngine;
 
 public class SmallCube : MonoBehaviour
 {
-    public bool isDestroyed = false;
-    public GameObject clusterCube;
-
+        public GameObject clusterCube;
+        public bool isDestroyed;
 }
     
